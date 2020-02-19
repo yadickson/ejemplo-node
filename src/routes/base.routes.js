@@ -9,8 +9,8 @@ module.exports = function (app) {
    *
    * @group base - Operaciones de usuarios
    * @route GET /
-   * @returns {object} 200 - An array of user info
-   * @returns {error}  error - Unexpected error
+   * @returns {task.model} 200 - Object representation
+   * @returns {error.model}  500 - Unexpected error
    */
   app.route(base).get(baseController.init)
 
