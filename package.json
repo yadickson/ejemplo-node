@@ -4,14 +4,16 @@
   "description": "Ejemplo inicial para uso de nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yadickson Soto",
   "license": "GPL-3.0",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-swagger-generator": "^1.1.17"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

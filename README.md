@@ -11,7 +11,8 @@ $ npm init
 
 $ npm install express --save
 $ npm install body-parser --save
-$ npm install querystring --save
+$ npm install cors --save
+$ npm install express-swagger-generator --save
 $ npm install eslint --save-dev
 $ npm install nodemon --save-dev
 
