@@ -7,7 +7,7 @@ module.exports = function (app) {
   /**
    * Login.
    *
-   * @group authentication - Operaciones de autenticacion
+   * @group AuthController - Operaciones de autenticacion
    * @route POST /login
    * @param {login.model} login.body.required - informacion de autenticacion
    * @consumes application/json
@@ -20,7 +20,7 @@ module.exports = function (app) {
   /**
    * Logout.
    *
-   * @group authentication - Operaciones de autenticacion
+   * @group AuthController - Operaciones de autenticacion
    * @route POST /logout
    * @produces application/json
    * @returns {object} 200 - ok

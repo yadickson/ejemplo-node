@@ -5,7 +5,6 @@ const port =
 
 require('./src/app.config')(app)
 require('./src/app.routes')(app)
-require('./src/app.swagger')(app)
 require('./src/app.handler')(app)
 
 app.listen(port, () => {

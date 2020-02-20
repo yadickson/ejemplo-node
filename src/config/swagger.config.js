@@ -19,7 +19,7 @@ const options = {
     }
   },
   basedir: __dirname,
-  files: ['./models/**/*.js', './routes/**/*.js'],
+  files: ['../models/**/*.js', '../routes/**/*.js'],
   route: { url: '/api-docs', docs: '/docs.json' }
 }
 
