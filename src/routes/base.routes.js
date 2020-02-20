@@ -2,7 +2,8 @@
 
 module.exports = function (app) {
   const baseController = require('../controllers/base.controller')
-  const base = '/'
+  const constants = require('../constants/constants')
+  const base = constants.BASE_PATH
 
   /**
    * Obtener informacion inicio de aplicacion.

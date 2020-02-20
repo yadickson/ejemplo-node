@@ -1,11 +1,16 @@
 'use strict'
 
-exports.init = (req, res, next) => {
+function init (req, res, next) {
   res.send('Saludos desde express')
 }
 
-exports.helloWorld = (req, res, next) => {
+function helloWorld (req, res, next) {
   const params = req.query
   console.log(params)
   res.send('Hola ' + req.body)
+}
+
+module.exports = {
+  init: init,
+  helloWorld: helloWorld
 }

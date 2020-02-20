@@ -1,23 +1,31 @@
 'use strict'
 
-exports.getAllTask = function (req, res) {
+function getAllTask (req, res) {
   res.json({ message: 'Tasks' })
 }
 
-exports.postOneTask = function (req, res) {
+function postOneTask (req, res) {
   // const one = req.body
   // if (err) res.send(err)
   res.json({ message: 'Task successfully created' })
 }
 
-exports.getOneTask = function (req, res) {
+function getOneTask (req, res) {
   res.json({ message: 'Task successfully readed' })
 }
 
-exports.updateOneTask = function (req, res) {
+function updateOneTask (req, res) {
   res.json({ message: 'Task successfully updated' })
 }
 
-exports.deleteOneTask = function (req, res) {
+function deleteOneTask (req, res) {
   res.json({ message: 'Task successfully deleted' })
+}
+
+module.exports = {
+  getAllTask: getAllTask,
+  postOneTask: postOneTask,
+  getOneTask: getOneTask,
+  updateOneTask: updateOneTask,
+  deleteOneTask: deleteOneTask
 }

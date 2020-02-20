@@ -2,7 +2,8 @@
 
 module.exports = function (app) {
   const oneController = require('../controllers/one.controller')
-  const base = '/one'
+  const constants = require('../constants/constants')
+  const base = constants.ONE_PAGE
 
   /**
    * Obtener informacion inicio de aplicacion.

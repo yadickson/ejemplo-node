@@ -1,5 +1,9 @@
 /**
  * @typedef task
- * @property {string} id.required
+ * @property {number} id.required
  * @property {string} name.required
  */
+module.exports = {
+  id: null,
+  name: null
+}

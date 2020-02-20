@@ -10,6 +10,7 @@ $ npm init
 ## Install
 
 $ npm install express --save
+$ npm install express-jwt --save
 $ npm install body-parser --save
 $ npm install cors --save
 $ npm install express-swagger-generator --save
@@ -26,8 +27,6 @@ $ npm start
 
 ## Link
 
-https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
-
 https://medium.com/@asfo/desarrollando-una-sencilla-api-rest-con-nodejs-y-express-cab0813f7e4b
 
-https://openclassrooms.com/en/courses/2504541-ultra-fast-applications-using-node-js/2504972-creating-your-first-app-with-node-js
+https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
