@@ -4,7 +4,7 @@ const perfil = require('../models/perfil.model')
 
 function login ({ user, pass }) {
   perfil.user = user
-
+  perfil.roles = ['READ', 'WRITE']
   return perfil
 }
 

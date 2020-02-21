@@ -5,6 +5,7 @@ function initialize (app) {
   const constants = require('../constants/constants')
   const base = constants.ONE_PAGE
   const authenticate = require('../middleware/authenticate')
+  const authorize = require('../middleware/authorize')
 
   /**
    * Obtener informacion inicio de aplicacion.
@@ -15,7 +16,7 @@ function initialize (app) {
    * @returns {error.model}  default - Unexpected error
    * @security JWT
    */
-  app.route(base).get(authenticate, oneController.getAllTask)
+  app.route(base).get(authenticate, authorize.all('READ'), oneController.getAllTask)
 
   /**
    * Obtener informacion inicio de aplicacion.

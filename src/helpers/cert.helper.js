@@ -1,6 +1,5 @@
 const NodeCache = require('node-cache')
 const Cache = new NodeCache({ stdTTL: 100, checkperiod: 120 })
-const ECKey = require('ec-key')
 const constants = require('../constants/constants')
 
 function getPrivateKey () {
@@ -11,14 +10,25 @@ function getPublicKey () {
   return Cache.get(constants.PUBLIC_KEY)
 }
 
-function initialize () {
-  const ECKey = require('ec-key')
+function initialize (mode) {
+  var privateKey = null
+  var publicKey = null
 
-  var privateKey = ECKey.createECKey(constants.EC_CURVE)
-  var publicKey = privateKey.asPublicECKey()
+  if (!mode) {
+    const fs = require('fs')
 
-  Cache.set(constants.PRIVATE_KEY, privateKey.toBuffer())
-  Cache.set(constants.PUBLIC_KEY, publicKey.toBuffer())
+    privateKey = fs.readFileSync('./key.pem')
+    publicKey = fs.readFileSync('./pub.pem')
+  } else {
+    const ECKey = require('ec-key')
+    const key = ECKey.createECKey(constants.EC_CURVE)
+
+    privateKey = key.toBuffer()
+    publicKey = key.asPublicECKey().toBuffer()
+  }
+
+  Cache.set(constants.PRIVATE_KEY, privateKey)
+  Cache.set(constants.PUBLIC_KEY, publicKey)
 }
 
 module.exports = {

@@ -2,10 +2,11 @@
 
 const express = require('express')
 const app = express()
-const port =
-  process.env.NODE_ENV === 'production' ? 80 : process.env.PORT || 3000
 
-require('./src/helpers/cert.helper').initialize()
+const mode = process.env.NODE_ENV === 'production'
+const port = mode ? 80 : process.env.PORT || 3000
+
+require('./src/helpers/cert.helper').initialize(mode)
 require('./src/app.config')(app)
 require('./src/app.routes')(app)
 require('./src/app.handler')(app)
