@@ -4,6 +4,7 @@ const passport = require('passport')
 const JwtStrategy = require('passport-jwt').Strategy
 const LocalStrategy = require('passport-local').Strategy
 const constants = require('../constants/constants')
+const cert = require('../helpers/cert.helper')
 
 function configLocal () {
   const opts = {
@@ -24,8 +25,8 @@ function configJwt () {
     jwtFromRequest: function (req) {
       return req.headers[constants.JWT]
     },
-    secretOrKey: process.env.JWT_SECRET,
-    algorithms: [constants.JWT_ALGORITHM]
+    secretOrKey: cert.getPublicKey(),
+    algorithms: [constants.EC_ALGORITHM]
   }
 
   passport.use(

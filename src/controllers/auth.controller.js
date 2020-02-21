@@ -6,14 +6,14 @@ const constants = require('../constants/constants')
 
 function login (req, res, next) {
   const perfil = authService.login(req.body)
-  const token = jwt.generate(perfil)
+  const token = jwt(perfil)
   res.header(constants.JWT, token)
   res.status(200).json(perfil)
 }
 
 function logout (req, res, next) {
   res.header(constants.JWT, null)
-  res.status(200).send({ message: 'OK' })
+  res.status(200).send({ message: `Close session ${req.perfil.user} OK` })
 }
 
 module.exports = {

@@ -6,7 +6,7 @@ const constants = require('../constants/constants')
 
 function generate (perfil) {
   const token = jwt.sign(
-    { sub: perfil.user, user: perfil },
+    { sub: perfil.user, perfil: perfil },
     cert.getPrivateKey(),
     {
       algorithm: constants.EC_ALGORITHM
@@ -15,19 +15,4 @@ function generate (perfil) {
   return token
 }
 
-function verify (token) {
-  try {
-    const decode = jwt.verify(token, cert.getPublicKey(), {
-      algorithm: constants.EC_ALGORITHM
-    })
-    return decode ? decode.user : null
-  } catch (err) {
-    console.log(err)
-    return null
-  }
-}
-
-module.exports = {
-  generate: generate,
-  verify: verify
-}
+module.exports = generate

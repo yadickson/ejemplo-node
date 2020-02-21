@@ -1,36 +1,34 @@
 'use strict'
 
 const passport = require('passport')
+const jwt = require('../security/jwt')
+const error = require('../models/error.model')
+const constants = require('../constants/constants')
 
 function authenticate (req, res, next) {
-  passport.authenticate('jwt', { session: false }, (err, user, info) => {
-    console.log(
-      'ejecutando *callback auth* de authenticate para estrategia jwt'
-    )
-
-    console.log(err)
-    console.log(user)
-    console.log(info)
-/*
-    // si hubo un error relacionado con la validez del token (error en su firma, caducado, etc)
+  passport.authenticate('jwt', { session: false }, (err, payload, info) => {
     if (info) {
-      return next(new error_types.Error401(info.message))
+      error.message = info.message
+      error.status = 401
+      return next(error)
     }
 
-    // si hubo un error en la consulta a la base de datos
     if (err) {
       return next(err)
     }
 
-    // si el token está firmado correctamente pero no pertenece a un usuario existente
-    if (!user) {
-      return next(new error_types.Error403('You are not allowed to access.'))
+    if (!payload) {
+      error.message = 'You are not allowed to access.'
+      error.status = 403
+      return next(error)
     }
 
-    // inyectamos los datos de usuario en la request
-    req.user = user
-    */
-    next()
+    const token = jwt(payload.perfil)
+    res.header(constants.JWT, token)
+
+    req.perfil = payload.perfil
+
+    return next()
   })(req, res, next)
 }
 

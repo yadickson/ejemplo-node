@@ -3,6 +3,7 @@
 function initialize (app) {
   const authController = require('../controllers/auth.controller')
   const constants = require('../constants/constants')
+  const authenticate = require('../middleware/authenticate')
 
   /**
    * Login.
@@ -27,7 +28,7 @@ function initialize (app) {
    * @returns {error.model}  500 - Unexpected error
    * @security JWT
    */
-  app.route(constants.LOGOUT_PATH).post(authController.logout)
+  app.route(constants.LOGOUT_PATH).post(authenticate, authController.logout)
 }
 
 module.exports = initialize
