@@ -50,3 +50,5 @@ https://medium.com/@asfo/desarrollando-una-sencilla-api-rest-con-nodejs-y-expres
 https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
 
 https://github.com/davidpoza/passport-jwt-example
+
+https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/

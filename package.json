@@ -25,6 +25,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "pg": "^7.18.2",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
