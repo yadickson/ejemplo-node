@@ -10,11 +10,11 @@ function getPublicKey () {
   return Cache.get(constants.PUBLIC_KEY)
 }
 
-function initialize (mode) {
+function initialize (production) {
   var privateKey = null
   var publicKey = null
 
-  if (!mode) {
+  if (production) {
     const fs = require('fs')
 
     privateKey = fs.readFileSync('./key.pem')

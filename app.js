@@ -2,15 +2,16 @@
 
 const express = require('express')
 const app = express()
+const argv   = require('yargs').argv
 
-const mode = process.env.NODE_ENV === 'production'
-const port = mode ? 80 : process.env.PORT || 3000
+const mode = argv.prod ? 'production' : 'develop'
+const port = argv.port || 3000
 
-require('./src/helpers/cert.helper').initialize(mode)
+require('./src/helpers/cert.helper').initialize(argv.prod)
 require('./src/app.config')(app)
 require('./src/app.routes')(app)
 require('./src/app.handler')(app)
 
 app.listen(port, () => {
-  console.log(`El servidor está inicializado en el puerto ${port}`)
+  console.log(`El servidor está inicializado en el puerto ${port} en modo ${mode}`)
 })
