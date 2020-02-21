@@ -11,6 +11,6 @@ function helloWorld (req, res, next) {
 }
 
 module.exports = {
-  init: init,
-  helloWorld: helloWorld
+  init,
+  helloWorld
 }

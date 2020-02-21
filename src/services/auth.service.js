@@ -11,6 +11,6 @@ function login ({ user, pass }) {
 function logout ({ token }) {}
 
 module.exports = {
-  login: login,
-  logout: logout
+  login,
+  logout
 }

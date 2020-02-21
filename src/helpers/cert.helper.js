@@ -32,7 +32,7 @@ function initialize (production) {
 }
 
 module.exports = {
-  getPrivateKey: getPrivateKey,
-  getPublicKey: getPublicKey,
-  initialize: initialize
+  getPrivateKey,
+  getPublicKey,
+  initialize
 }

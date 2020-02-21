@@ -23,9 +23,9 @@ function deleteOneTask (req, res) {
 }
 
 module.exports = {
-  getAllTask: getAllTask,
-  postOneTask: postOneTask,
-  getOneTask: getOneTask,
-  updateOneTask: updateOneTask,
-  deleteOneTask: deleteOneTask
+  getAllTask,
+  postOneTask,
+  getOneTask,
+  updateOneTask,
+  deleteOneTask
 }
