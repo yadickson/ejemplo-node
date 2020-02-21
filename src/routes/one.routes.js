@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (app) {
+function initialize (app) {
   const oneController = require('../controllers/one.controller')
   const constants = require('../constants/constants')
   const base = constants.ONE_PAGE
@@ -55,4 +55,8 @@ module.exports = function (app) {
    * @returns {Error}  default - Unexpected error
    */
   app.route(base + '/:taskId').delete(oneController.deleteOneTask)
+}
+
+module.exports = {
+  initialize: initialize
 }

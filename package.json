@@ -4,26 +4,29 @@
   "description": "Ejemplo inicial para uso de nodejs",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon app.js",
-    "start": "npm run nodemon",
-    "test": "mocha --recursive"
+    "start": "nodemon app.js",
+    "test": "nyc --all --reporter=html --reporter=text mocha -- --recursive",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Yadickson Soto",
   "license": "GPL-3.0",
   "dependencies": {
+    "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "ec-key": "0.0.4",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "express-swagger-generator": "^1.1.17",
+    "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
-    "keypair": "^1.0.1",
-    "node-cache": "^5.1.0",
-    "openssl-nodejs": "^1.0.5"
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-standard": "^14.1.0",
@@ -32,7 +35,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^7.0.1",
+    "mock-require": "^3.0.3",
     "nodemon": "^2.0.2",
+    "nyc": "^15.0.0",
     "sinon": "^9.0.0"
   }
 }

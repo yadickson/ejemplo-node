@@ -11,5 +11,5 @@ require('./src/app.routes')(app)
 require('./src/app.handler')(app)
 
 app.listen(port, () => {
-  console.log('El servidor está inicializado en el puerto 3000')
+  console.log(`El servidor está inicializado en el puerto ${port}`)
 })

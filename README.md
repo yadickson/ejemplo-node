@@ -30,3 +30,5 @@ $ npm start
 https://medium.com/@asfo/desarrollando-una-sencilla-api-rest-con-nodejs-y-express-cab0813f7e4b
 
 https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
+
+https://github.com/davidpoza/passport-jwt-example
