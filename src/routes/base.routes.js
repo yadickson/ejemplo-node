@@ -5,6 +5,7 @@ function initialize (app) {
   const constants = require('../constants/constants')
   const base = constants.BASE_PATH
   const authenticate = require('../middleware/authenticate')
+  const authorize = require('../middleware/authorize')
 
   /**
    * Obtener informacion inicio de aplicacion.
@@ -17,7 +18,8 @@ function initialize (app) {
   app.route(base).get(baseController.init)
 
   /**
-   * Obtener informacion inicio de aplicacion.
+   * Obtener saludo de aplicacion.
+   * Permisos ['READ']
    *
    * @group BaseController - Operaciones de usuarios
    * @route GET /hola
@@ -25,7 +27,9 @@ function initialize (app) {
    * @returns {error.model}  error - Unexpected error
    * @security JWT
    */
-  app.route(base + 'hola').get(authenticate, baseController.helloWorld)
+  app
+    .route(base + 'hola')
+    .get(authenticate, authorize.all('READ'), baseController.helloWorld)
 }
 
 module.exports = initialize

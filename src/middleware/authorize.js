@@ -4,11 +4,11 @@ const error = require('../models/error.model')
 const constants = require('../constants/constants')
 
 function isAllowedAll (roles, allowed) {
-  return roles.some(role => allowed.indexOf(role) > -1)
+  return !!allowed && !!roles && allowed.every(allow => roles.indexOf(allow) > -1)
 }
 
 function isAllowedAny (roles, allowed) {
-  return roles.some(role => allowed.indexOf(role) > -1)
+  return !!allowed && !!roles && allowed.some(allow => roles.indexOf(allow) > -1)
 }
 
 function sendError (req, res) {

@@ -8,7 +8,8 @@ function initialize (app) {
   const authorize = require('../middleware/authorize')
 
   /**
-   * Obtener informacion inicio de aplicacion.
+   * Obtener todas las tareas.
+   * Permisos ['READ']
    *
    * @group OneController - Operaciones de usuarios
    * @route GET /one
@@ -16,10 +17,13 @@ function initialize (app) {
    * @returns {error.model}  default - Unexpected error
    * @security JWT
    */
-  app.route(base).get(authenticate, authorize.all('READ'), oneController.getAllTask)
+  app
+    .route(base)
+    .get(authenticate, authorize.all('READ'), oneController.getAllTask)
 
   /**
-   * Obtener informacion inicio de aplicacion.
+   * Crear una tarea.
+   * Permisos ['WRITE']
    *
    * @group OneController - Operaciones de usuarios
    * @route POST /one
@@ -27,10 +31,13 @@ function initialize (app) {
    * @returns {error.model}  default - Unexpected error
    * @security JWT
    */
-  app.route(base).post(authenticate, oneController.postOneTask)
+  app
+    .route(base)
+    .post(authenticate, authorize.all('WRITE'), oneController.postOneTask)
 
   /**
-   * Obtener informacion inicio de aplicacion.
+   * Obtener una tarea.
+   * Permisos ['READ']
    *
    * @group OneController - Operaciones de usuarios
    * @route GET /one
@@ -39,10 +46,13 @@ function initialize (app) {
    * @returns {Error}  default - Unexpected error
    * @security JWT
    */
-  app.route(base + '/:taskId').get(authenticate, oneController.getOneTask)
+  app
+    .route(base + '/:taskId')
+    .get(authenticate, authorize.all('READ'), oneController.getOneTask)
 
   /**
-   * Obtener informacion inicio de aplicacion.
+   * Actualizar una tarea.
+   * Permisos ['UPDATE']
    *
    * @group OneController - Operaciones de usuarios
    * @route PUT /one
@@ -50,10 +60,13 @@ function initialize (app) {
    * @returns {error.model}  default - Unexpected error
    * @security JWT
    */
-  app.route(base + '/:taskId').put(authenticate, oneController.updateOneTask)
+  app
+    .route(base + '/:taskId')
+    .put(authenticate, authorize.all('UPDATE'), oneController.updateOneTask)
 
   /**
-   * Obtener informacion inicio de aplicacion.
+   * Eliminar una tarea.
+   * Permisos ['DELETE']
    *
    * @group OneController - Operaciones de usuarios
    * @route DELETE /one
@@ -61,7 +74,9 @@ function initialize (app) {
    * @returns {error.model}  default - Unexpected error
    * @security JWT
    */
-  app.route(base + '/:taskId').delete(authenticate, oneController.deleteOneTask)
+  app
+    .route(base + '/:taskId')
+    .delete(authenticate, authorize.all('DELETE'), oneController.deleteOneTask)
 }
 
 module.exports = initialize
