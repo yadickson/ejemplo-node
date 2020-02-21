@@ -1,11 +1,11 @@
 'use strict'
 
-function initialize (app) {
+function initialize (context, app) {
   const oneController = require('../controllers/one.controller')
   const constants = require('../constants/constants')
-  const base = constants.ONE_PAGE
   const authenticate = require('../middleware/authenticate')
   const authorize = require('../middleware/authorize')
+  const base = context + constants.ONE_PAGE
 
   /**
    * Obtener todas las tareas.

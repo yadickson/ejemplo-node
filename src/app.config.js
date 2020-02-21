@@ -1,9 +1,9 @@
 'use strict'
 
-module.exports = function (app) {
+module.exports = function (context, app) {
   require('./config/parser.config')(app)
   require('./config/cors.config')(app)
-  require('./config/swagger.config')(app)
+  require('./config/swagger.config')(context, app)
   require('./config/helmet.config')(app)
   require('./config/passport.config')(app)
 }

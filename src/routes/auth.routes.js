@@ -1,9 +1,10 @@
 'use strict'
 
-function initialize (app) {
+function initialize (context, app) {
   const authController = require('../controllers/auth.controller')
   const constants = require('../constants/constants')
   const authenticate = require('../middleware/authenticate')
+  const base = context
 
   /**
    * Login.
@@ -16,7 +17,7 @@ function initialize (app) {
    * @returns {perfil.model} 200 - Informacion del perfil de usuario.
    * @returns {error.model}  500 - Unexpected error
    */
-  app.route(constants.LOGIN_PATH).post(authController.login)
+  app.route(base + constants.LOGIN_PATH).post(authController.login)
 
   /**
    * Logout.
@@ -28,7 +29,9 @@ function initialize (app) {
    * @returns {error.model}  500 - Unexpected error
    * @security JWT
    */
-  app.route(constants.LOGOUT_PATH).post(authenticate, authController.logout)
+  app
+    .route(base + constants.LOGOUT_PATH)
+    .post(authenticate, authController.logout)
 }
 
 module.exports = initialize

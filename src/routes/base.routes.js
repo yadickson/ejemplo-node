@@ -1,11 +1,11 @@
 'use strict'
 
-function initialize (app) {
+function initialize (context, app) {
   const baseController = require('../controllers/base.controller')
   const constants = require('../constants/constants')
-  const base = constants.BASE_PATH
   const authenticate = require('../middleware/authenticate')
   const authorize = require('../middleware/authorize')
+  const base = context + constants.BASE_PATH
 
   /**
    * Obtener informacion inicio de aplicacion.

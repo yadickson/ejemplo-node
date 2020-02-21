@@ -1,7 +1,7 @@
 'use strict'
 
-module.exports = function (app) {
-  require('./routes/auth.routes')(app)
-  require('./routes/base.routes')(app)
-  require('./routes/one.routes')(app)
+module.exports = function (context, app) {
+  require('./routes/auth.routes')(context, app)
+  require('./routes/base.routes')(context, app)
+  require('./routes/one.routes')(context, app)
 }
