@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (app) {
+function initialize (app) {
   const authController = require('../controllers/auth.controller')
   const constants = require('../constants/constants')
 
@@ -28,4 +28,8 @@ module.exports = function (app) {
    * @security X-TOKEN
    */
   app.route(constants.LOGOUT_PATH).post(authController.logout)
+}
+
+module.exports = {
+  initialize: initialize
 }

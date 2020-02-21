@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (app) {
+function initialize (app) {
   const baseController = require('../controllers/base.controller')
   const constants = require('../constants/constants')
   const base = constants.BASE_PATH
@@ -24,4 +24,8 @@ module.exports = function (app) {
    * @returns {error}  error - Unexpected error
    */
   app.route(base + 'hola').get(baseController.helloWorld)
+}
+
+module.exports = {
+  initialize: initialize
 }
