@@ -30,6 +30,4 @@ function initialize (app) {
   app.route(constants.LOGOUT_PATH).post(authController.logout)
 }
 
-module.exports = {
-  initialize: initialize
-}
+module.exports = initialize

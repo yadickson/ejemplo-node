@@ -26,6 +26,4 @@ function initialize (app) {
   app.route(base + 'hola').get(baseController.helloWorld)
 }
 
-module.exports = {
-  initialize: initialize
-}
+module.exports = initialize

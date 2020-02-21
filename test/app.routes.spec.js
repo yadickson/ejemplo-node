@@ -1,7 +1,7 @@
-var assert = require('assert')
+'use strict'
 
-var sinon = require('sinon')
-var mock = require('mock-require')
+const sinon = require('sinon')
+const mock = require('mock-require')
 
 describe('Test App Routes', function () {
   var app = {}
@@ -10,12 +10,16 @@ describe('Test App Routes', function () {
   var initBaseRoute = sinon.fake()
   var initOneRoute = sinon.fake()
 
-  mock('../src/routes/auth.routes', { initialize: initAuthRoute })
-  mock('../src/routes/base.routes', { initialize: initBaseRoute })
-  mock('../src/routes/one.routes', { initialize: initOneRoute })
+  before(() => {
+    mock('../src/routes/auth.routes', initAuthRoute)
+    mock('../src/routes/base.routes', initBaseRoute)
+    mock('../src/routes/one.routes', initOneRoute)
+    require('../src/app.routes')(app)
+  })
 
-  const appRoutes = require('../src/app.routes')
-  appRoutes(app)
+  after(() => {
+    sinon.restore()
+  })
 
   describe('auth.routes', function () {
     it('Check if ./routes/auth.routes was called', function () {

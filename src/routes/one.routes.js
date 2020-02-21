@@ -57,6 +57,4 @@ function initialize (app) {
   app.route(base + '/:taskId').delete(oneController.deleteOneTask)
 }
 
-module.exports = {
-  initialize: initialize
-}
+module.exports = initialize
