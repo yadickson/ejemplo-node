@@ -25,7 +25,7 @@ module.exports = function (app) {
    * @produces application/json
    * @returns {object} 200 - ok
    * @returns {error.model}  500 - Unexpected error
-   * @security X-TOKEN
+   * @security JWT
    */
   app.route(constants.LOGOUT_PATH).post(authController.logout)
 }

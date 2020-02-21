@@ -1,5 +1,7 @@
 'use strict'
 
+const constants = require('../constants/constants')
+
 const options = {
   swaggerDefinition: {
     info: {
@@ -13,7 +15,7 @@ const options = {
       JWT: {
         type: 'apiKey',
         in: 'header',
-        name: 'X-TOKEN',
+        name: constants.JWT,
         description: 'JWT value'
       }
     }

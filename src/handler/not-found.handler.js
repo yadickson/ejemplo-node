@@ -5,10 +5,10 @@ const constants = require('../constants/constants')
 
 function notFoundHandler (req, res, next) {
   error.url = !req ? null : req.originalUrl
-  error.code = constants.NOT_FOUND_CODE
+  error.status = constants.NOT_FOUND_CODE
   error.menssage = constants.NOT_FOUND_STR
 
-  res.status(error.code).send(error)
+  res.status(error.status).send(error)
 }
 
 module.exports = function (app) {

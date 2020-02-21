@@ -4,7 +4,8 @@
   "description": "Ejemplo inicial para uso de nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "nodemon": "nodemon app.js",
+    "start": "npm run nodemon",
     "test": "mocha --recursive"
   },
   "author": "Yadickson Soto",
@@ -12,10 +13,14 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "ec-key": "0.0.4",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "express-swagger-generator": "^1.1.17",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "keypair": "^1.0.1",
+    "node-cache": "^5.1.0",
+    "openssl-nodejs": "^1.0.5"
   },
   "devDependencies": {
     "chai": "^4.2.0",
