@@ -4,25 +4,15 @@ function getPool () {
   return global.poolDataBase
 }
 
-function initialize (argv) {
+function initialize (dbconfig) {
   const Pool = require('pg').Pool
-
-  const config = {
-    user: argv.dbuser || 'user',
-    password: argv.dbpass || 'pass',
-    host: argv.dbhost || 'localhost',
-    port: argv.dbport || 5432,
-    database: argv.dbname || 'db',
-    ssl: argv.dbssl || false
-  }
-
-  const pool = new Pool(config)
+  const pool = new Pool(dbconfig)
 
   logger.info('Creando pool de conexiones')
-  logger.debug('host:', config.host)
-  logger.debug('port:', config.port)
-  logger.debug('db:', config.database)
-  logger.debug('user:', config.user)
+  logger.debug('host:', dbconfig.host)
+  logger.debug('port:', dbconfig.port)
+  logger.debug('db:', dbconfig.database)
+  logger.debug('user:', dbconfig.user)
 
   global.poolDataBase = pool
 }
