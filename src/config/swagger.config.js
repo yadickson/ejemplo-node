@@ -3,6 +3,7 @@
 module.exports = function (context, app) {
   const swagger = require('express-swagger-generator')(app)
   const constants = require('src/constants/constants')
+  const path = require('path')
 
   const options = {
     swaggerDefinition: {
@@ -23,7 +24,7 @@ module.exports = function (context, app) {
         }
       }
     },
-    basedir: __dirname,
+    basedir: path.resolve(),
     files: ['src/models/**/*.js', 'src/routes/**/*.js'],
     route: { url: context + '/api-docs', docs: context + '/docs.json' }
   }
