@@ -1,7 +1,6 @@
 'use strict'
 
-const error = require('../models/error.model')
-const constants = require('../constants/constants')
+const error = require('src/models/error.model')
 
 function isAllowedAll (roles, allowed) {
   return !!allowed && !!roles && allowed.every(allow => roles.indexOf(allow) > -1)

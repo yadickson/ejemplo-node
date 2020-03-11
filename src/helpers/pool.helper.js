@@ -1,13 +1,12 @@
-const NodeCache = require('node-cache')
-const Cache = new NodeCache({ stdTTL: 100, checkperiod: 120 })
-const Pool = require('pg').Pool
-const constants = require('../constants/constants')
+const logger = require('src/logger')('pool')
 
 function getPool () {
-  return Cache.get(constants.POOL_CONNECTION)
+  return global.poolDataBase
 }
 
 function initialize (argv) {
+  const Pool = require('pg').Pool
+
   const config = {
     user: argv.dbuser || 'user',
     password: argv.dbpass || 'pass',
@@ -19,7 +18,13 @@ function initialize (argv) {
 
   const pool = new Pool(config)
 
-  Cache.set(constants.POOL_CONNECTION, pool)
+  logger.info('Creando pool de conexiones')
+  logger.info('host:', config.host)
+  logger.info('port:', config.port)
+  logger.info('db:', config.database)
+  logger.info('user:', config.user)
+
+  global.poolDataBase = pool
 }
 
 module.exports = {

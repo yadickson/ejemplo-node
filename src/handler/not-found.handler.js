@@ -1,7 +1,7 @@
 'use strict'
 
-const error = require('../models/error.model')
-const constants = require('../constants/constants')
+const error = require('src/models/error.model')
+const constants = require('src/constants/constants')
 
 function notFoundHandler (req, res, next) {
   error.url = !req ? null : req.originalUrl

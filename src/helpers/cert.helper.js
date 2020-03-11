@@ -1,13 +1,12 @@
-const NodeCache = require('node-cache')
-const Cache = new NodeCache({ stdTTL: 100, checkperiod: 120 })
-const constants = require('../constants/constants')
+const logger = require('src/logger')('cert')
+const constants = require('src/constants/constants')
 
 function getPrivateKey () {
-  return Cache.get(constants.PRIVATE_KEY)
+  return global.privateKey
 }
 
 function getPublicKey () {
-  return Cache.get(constants.PUBLIC_KEY)
+  return global.publicKey
 }
 
 function initialize (production) {
@@ -15,11 +14,13 @@ function initialize (production) {
   var publicKey = null
 
   if (production) {
+    logger.info('Iniciando creacion de certificado en modo produccion')
     const fs = require('fs')
 
     privateKey = fs.readFileSync('./key.pem')
     publicKey = fs.readFileSync('./pub.pem')
   } else {
+    logger.info('Iniciando creacion de certificado en modo desarrollo')
     const ECKey = require('ec-key')
     const key = ECKey.createECKey(constants.EC_CURVE)
 
@@ -27,8 +28,8 @@ function initialize (production) {
     publicKey = key.asPublicECKey().toBuffer()
   }
 
-  Cache.set(constants.PRIVATE_KEY, privateKey)
-  Cache.set(constants.PUBLIC_KEY, publicKey)
+  global.privateKey = privateKey
+  global.publicKey = publicKey
 }
 
 module.exports = {

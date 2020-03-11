@@ -1,8 +1,8 @@
 'use strict'
 
 const jwt = require('jsonwebtoken')
-const cert = require('../helpers/cert.helper')
-const constants = require('../constants/constants')
+const cert = require('src/helpers/cert.helper')
+const constants = require('src/constants/constants')
 
 function generate (perfil) {
   const token = jwt.sign(

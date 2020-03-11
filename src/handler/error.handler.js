@@ -1,7 +1,7 @@
 'use strict'
 
 function errorHandler (err, req, res, next) {
-  const error = require('../models/error.model')
+  const error = require('src/models/error.model')
 
   console.log(err)
 

@@ -1,9 +1,9 @@
 'use strict'
 
 const passport = require('passport')
-const jwt = require('../security/jwt')
-const error = require('../models/error.model')
-const constants = require('../constants/constants')
+const jwt = require('src/security/jwt')
+const error = require('src/models/error.model')
+const constants = require('src/constants/constants')
 
 function authenticate (req, res, next) {
   passport.authenticate('jwt', { session: false }, (err, payload, info) => {

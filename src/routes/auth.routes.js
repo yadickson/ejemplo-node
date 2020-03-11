@@ -1,9 +1,9 @@
 'use strict'
 
 function initialize (context, app) {
-  const authController = require('../controllers/auth.controller')
-  const constants = require('../constants/constants')
-  const authenticate = require('../middleware/authenticate')
+  const authController = require('src/controllers/auth.controller')
+  const constants = require('src/constants/constants')
+  const authenticate = require('src/middleware/authenticate')
   const base = context
 
   /**

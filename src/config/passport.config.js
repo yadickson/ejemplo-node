@@ -3,8 +3,8 @@
 const passport = require('passport')
 const JwtStrategy = require('passport-jwt').Strategy
 const LocalStrategy = require('passport-local').Strategy
-const constants = require('../constants/constants')
-const cert = require('../helpers/cert.helper')
+const constants = require('src/constants/constants')
+const cert = require('src/helpers/cert.helper')
 
 function configLocal () {
   const opts = {

@@ -1,6 +1,6 @@
 'use strict'
 
-const perfil = require('../models/perfil.model')
+const perfil = require('src/models/perfil.model')
 
 function login ({ user, pass }) {
   perfil.user = user

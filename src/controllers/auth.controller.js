@@ -1,8 +1,8 @@
 'use strict'
 
-const authService = require('../services/auth.service')
-const jwt = require('../security/jwt')
-const constants = require('../constants/constants')
+const authService = require('src/services/auth.service')
+const jwt = require('src/security/jwt')
+const constants = require('src/constants/constants')
 
 function login (req, res, next) {
   const perfil = authService.login(req.body)

@@ -2,7 +2,7 @@
 
 module.exports = function (app) {
   const cors = require('cors')
-  const constants = require('../constants/constants')
+  const constants = require('src/constants/constants')
 
   var corsOptions = {
     origin: '*',

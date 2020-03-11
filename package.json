@@ -6,13 +6,14 @@
   "scripts": {
     "cert": "node cert.js",
     "start": "nodemon app.js",
-    "start:prod": "nodemon app.js --port=4000 --prod --context=/nodejs",
-    "test": "nyc --all --reporter=html --reporter=text mocha -- --recursive",
+    "start:prod": "node app.js --port=4000 --prod --context=/nodejs",
+    "test": "nyc --all --reporter=html --reporter=text mocha -- --require test/bootstrap.js --recursive",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Yadickson Soto",
   "license": "GPL-3.0",
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -21,7 +22,7 @@
     "express-swagger-generator": "^1.1.17",
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
-    "node-cache": "^5.1.0",
+    "log4js": "^6.1.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",

@@ -2,7 +2,7 @@
 
 async function getAll (callback) {
   try {
-    const pool = require('../helpers/pool.helper').getPool()
+    const pool = require('src/helpers/pool.helper').getPool()
     var client = await pool.connect()
     var result = await client.query('select $1::text as name', ['brianc'])
     callback(null, result.rows)
