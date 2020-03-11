@@ -19,10 +19,10 @@ function initialize (argv) {
   const pool = new Pool(config)
 
   logger.info('Creando pool de conexiones')
-  logger.info('host:', config.host)
-  logger.info('port:', config.port)
-  logger.info('db:', config.database)
-  logger.info('user:', config.user)
+  logger.debug('host:', config.host)
+  logger.debug('port:', config.port)
+  logger.debug('db:', config.database)
+  logger.debug('user:', config.user)
 
   global.poolDataBase = pool
 }

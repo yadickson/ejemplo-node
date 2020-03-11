@@ -14,13 +14,13 @@ function initialize (production) {
   var publicKey = null
 
   if (production) {
-    logger.info('Iniciando creacion de certificado en modo produccion')
+    logger.info('Creando certificado en modo produccion')
     const fs = require('fs')
 
     privateKey = fs.readFileSync('./key.pem')
     publicKey = fs.readFileSync('./pub.pem')
   } else {
-    logger.info('Iniciando creacion de certificado en modo desarrollo')
+    logger.info('Creando certificado en modo desarrollo')
     const ECKey = require('ec-key')
     const key = ECKey.createECKey(constants.EC_CURVE)
 
